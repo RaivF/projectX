@@ -15,8 +15,8 @@ const PORT = 3010
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-//'D:\\coub' 'E:\\raivevans'
-const videoDirectory = path.join('./video') // Указываем путь к папке с видео
+//'D:\\coub' 'E:\\raivevans' './video'
+const videoDirectory = path.join('E:\\raivevans') // Указываем путь к папке с видео
 
 // Функция для получения списка видеофайлов
 const getVideoFiles = () => {

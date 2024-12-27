@@ -1,10 +1,10 @@
 import { PropsWithChildren, useEffect } from "react"
 
-import { VideoFeed } from "./components/videoFeed/index"
+import { VideoFeed } from "./pages/videoFeed/index"
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
 import { getAccessToken } from "./lib/local-storage.lib"
-import { SignUp } from "./components/signup"
-import { SignIn } from "./components/signin"
+import { SignUp } from "./components/processes/auth/signup"
+import { SignIn } from "./components/processes/auth/signin"
 import { Header } from "./components/header/header.style"
 
 function App() {

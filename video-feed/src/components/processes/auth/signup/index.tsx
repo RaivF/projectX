@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom"
-import { api } from "../../api-provider/api"
+import { api } from "../../../../api-provider/api"
 import { MouseEvent, useState } from "react"
 import { SignupForm, Title, Form, Label, Button, SubmitButton, Input } from "./signup.style"
-import { setUserLogin } from "../../redux/sessionSlice"
+import { setUserLogin } from "../../../../redux/sessionSlice"
 import { useDispatch } from "react-redux"
 
 export const SignUp = () => {
