@@ -1,4 +1,4 @@
-import { Tokens } from "../types/tokens"
+import { Profile, Tokens } from "../types/types"
 
 const getVideos = async (props: { start: number; count: number }) => {
 	const response = await fetch(`http://localhost:3010/videos?start=${props.start}&count=${props.count}`)
@@ -41,11 +41,6 @@ const register = async (login: string, password: string): Promise<Tokens> => {
 
 	const data: Tokens = await response.json()
 	return data
-}
-
-type Profile = {
-	id: string
-	login: string
 }
 
 const getProfile = async (login: string): Promise<Profile> => {

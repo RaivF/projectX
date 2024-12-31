@@ -1,11 +1,15 @@
 import styled from "styled-components"
+export const MainVideoContainer = styled.div<{ theme: string }>`
+	background: ${(p) => (p.theme === "LIGHT" ? "#fce4da" : "black")};
+`
 
-export const VideoContainer = styled.div`
+export const VideoContainer = styled.div<{ theme: string }>`
 	width: 700px;
 	height: 500px;
-	margin: 50px auto;
-	background-color: black;
-	box-shadow: 6px 5px 6px 6px #b7b7b7;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	background: ${(p) => (p.theme === "LIGHT" ? " #ffcdb8" : "black")};
+	box-shadow: 6px 5px 6px 6px ${(p) => (p.theme === "LIGHT" ? "#b7b7b7" : "black")};
 	border: 1px solid gray;
 	border-radius: 10px;
 	transition-duration: 0.2s;
@@ -21,7 +25,7 @@ export const VideoContainer = styled.div`
 	}
 
 	&:hover {
-		box-shadow: 6px 5px 6px 6px #b7b7b7;
+		box-shadow: 6px 5px 6px 6px #1f1d1d;
 	}
 `
 

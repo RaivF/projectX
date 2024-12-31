@@ -17,7 +17,9 @@ export const fetchVideos = async (start: number, count: number, dispatch: any) =
 	} catch (error) {
 		console.error("Error:", error)
 	} finally {
-		dispatch(setLoading(false))
+		setTimeout(() => {
+			dispatch(setLoading(false))
+		}, 2000)
 	}
 }
 

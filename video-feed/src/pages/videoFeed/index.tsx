@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { resetVideos } from "../../redux/videoSlice"
-import { VideoContainer } from "./videoFeed.styles"
+import { MainVideoContainer, VideoContainer } from "./videoFeed.styles"
 import { Store } from "../../redux/store"
-
-import { fetchVideos, handleKeyPress, onVideoClick } from "../../components/utils"
+import { initialThemeType } from "../../types/types"
+import { fetchVideos, handleKeyPress, onVideoClick } from "../../utils/utils"
+import { Loading } from "../../components/loading"
 
 export const VideoFeed = () => {
 	const dispatch = useDispatch()
@@ -13,6 +14,7 @@ export const VideoFeed = () => {
 	const [activeIndex, setActiveIndex] = useState<number | null>(null)
 	const videoRefs = useRef<HTMLVideoElement[]>([])
 	const endIndexVideo = videos.length - 2
+	const theme = useSelector((state: any) => state.theme.theme)
 
 	useEffect(() => {
 		fetchVideos(0, 10, dispatch)
@@ -58,7 +60,7 @@ export const VideoFeed = () => {
 	const fetchNextPack = () => {
 		if (!activeIndex) return
 
-		// это реализация динамической прогрузки, но при малом количестве видео она не нужна
+		// это реализация динамической прогрузки
 		if (activeIndex >= endIndexVideo) {
 			const VIDEOS_COUNT = 10
 			fetchVideos(videos.length + 1, VIDEOS_COUNT, dispatch)
@@ -66,15 +68,19 @@ export const VideoFeed = () => {
 	}
 
 	if (loading) {
-		return <div>Loading...</div>
+		return <Loading />
 	}
 
 	videoRefs.current = []
 
 	return (
-		<div>
+		<MainVideoContainer theme={theme}>
 			{videos.map((video, i) => (
-				<VideoContainer onClick={() => onVideoClick(i, videoRefs, activeIndex, isPaused, setIsPaused, setActiveIndex)} key={video.id}>
+				<VideoContainer
+					theme={theme}
+					onClick={() => onVideoClick(i, videoRefs, activeIndex, isPaused, setIsPaused, setActiveIndex)}
+					key={video.id}
+				>
 					<video
 						loop
 						preload="auto"
@@ -86,6 +92,6 @@ export const VideoFeed = () => {
 					</video>
 				</VideoContainer>
 			))}
-		</div>
+		</MainVideoContainer>
 	)
 }

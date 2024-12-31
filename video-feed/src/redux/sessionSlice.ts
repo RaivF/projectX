@@ -1,16 +1,7 @@
 // src/redux/videoSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { getAccessToken, removeAccessToken, setAccessToken } from "../lib/local-storage.lib"
-
-type userType = {
-	id: string
-	name: string
-}
-
-export type initialStateType = {
-	user: userType
-	token: string | null
-}
+import { initialStateType } from "../types/types"
 
 const initialState: initialStateType = {
 	user: { id: "1", name: "guest" },

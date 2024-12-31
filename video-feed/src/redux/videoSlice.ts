@@ -1,16 +1,6 @@
 // src/redux/videoSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-
-interface Video {
-	id: string
-	title: string
-	url: string
-}
-
-interface VideoState {
-	videos: Video[]
-	loading: boolean
-}
+import { Video, VideoState } from "../types/types"
 
 const initialState: VideoState = {
 	videos: [],
