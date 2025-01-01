@@ -19,11 +19,6 @@ export const VideoContainer = styled.div<{ theme: string }>`
 
 	cursor: pointer;
 
-	video {
-		width: 100%;
-		max-height: 480px;
-	}
-
 	&:hover {
 		box-shadow: 6px 5px 6px 6px #1f1d1d;
 	}
@@ -35,16 +30,6 @@ export const VideoTitle = styled.h3`
 	color: white;
 `
 
-export const BlurOnPaused = styled.div`
-	width: 100%;
-	height: 100%;
-	background-color: rgb(0 0 0 / 50%);
-	z-index: 2;
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`
 export const Logout = styled.button`
 	z-index: 2;
 	position: absolute;

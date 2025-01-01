@@ -36,17 +36,12 @@ export const handleKeyPress = (
 
 	setIsPaused(false)
 
-	if (activeIndex === null) {
-		return setActiveIndex(0)
-	}
-
 	if (event.key === "ArrowDown" && activeIndex < videos.length - 1) {
-		const prevPrevVideo = videoRefs.current[activeIndex]
-		prevPrevVideo?.pause()
-
-		setActiveIndex(activeIndex + 1)
+		// videoRefs.current[activeIndex - 1]?.pause()
+		setActiveIndex(2)
+		console.log(activeIndex + 1)
 	}
-	if (event.key === "ArrowUp" && activeIndex > 0) setActiveIndex(activeIndex - 1)
+	// if (event.key === "ArrowUp" && activeIndex > 0) setActiveIndex(activeIndex - 1)
 }
 
 export const onVideoClick = (index: number, videoRefs: any, activeIndex: any, isPaused: any, setIsPaused: any, setActiveIndex: any) => {

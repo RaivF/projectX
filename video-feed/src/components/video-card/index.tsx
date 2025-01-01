@@ -1,9 +1,14 @@
-import logoLoading from "../../assets/loading.gif"
 import { VideoCardContainer } from "./video-card.style"
-export const VideoCard = () => {
+export const VideoCard = ({ videoRefs, video }: any) => {
 	return (
-		<VideoCardContainer>
-			<img src={logoLoading} alt="" />
+		<VideoCardContainer
+			loop
+			preload="auto"
+			ref={(el) => {
+				if (el) videoRefs.current.push(el)
+			}}
+		>
+			<source src={video.url} id={video.id} type="video/mp4" />
 		</VideoCardContainer>
 	)
 }
