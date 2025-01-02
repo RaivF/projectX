@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const LoadingImgContainer = styled.image`
+export const LoadingImgContainer = styled.div`
 	height: 100vh;
 	display: flex;
 	justify-content: center;

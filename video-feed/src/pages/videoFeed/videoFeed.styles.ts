@@ -19,6 +19,11 @@ export const VideoContainer = styled.div<{ theme: string }>`
 
 	cursor: pointer;
 
+	video {
+		width: 100%;
+		max-height: 480px;
+	}
+
 	&:hover {
 		box-shadow: 6px 5px 6px 6px #1f1d1d;
 	}

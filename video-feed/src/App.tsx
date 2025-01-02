@@ -4,9 +4,8 @@ import { VideoFeed } from "./pages/videoFeed/index"
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
 import { getAccessToken } from "./lib/local-storage.lib"
 
-import { SignUp } from "./processes/auth/signup"
-import { SignIn } from "./processes/auth/signin"
 import { Header } from "./components/header"
+import { Auth } from "./processes/auth/auth"
 
 function App() {
 	return (
@@ -20,9 +19,8 @@ function App() {
 					</WithAuth>
 				}
 			/>
-			<Route path="/signup" element={<SignUp />} />
-			<Route path="/signin" element={<SignIn />} />
 
+			<Route path="/auth" element={<Auth />} />
 			<Route path="*" element={<Navigate to="/" replace />} />
 		</Routes>
 	)
@@ -37,7 +35,7 @@ function WithAuth(props: PropsWithChildren) {
 		const tokens = getAccessToken()
 
 		if (!tokens) {
-			nav("/signin")
+			nav("/Auth")
 		}
 	}, [])
 
